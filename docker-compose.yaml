@@ -5,7 +5,8 @@ services:
     build:
       context: ./node
       dockerfile: Dockerfile
-    entrypoint: dockerize -wait tcp://db:3306 -timeout 50s docker-entrypoint.sh    
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 50s docker-entrypoint.sh   
+    command: ["node", "index.js"] 
     restart: always
     volumes:
       - ./node:/usr/src/app
